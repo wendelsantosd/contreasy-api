@@ -1,0 +1,12 @@
+{
+    "ignore": [
+        "**/*.test.ts",
+        "**/*.spec.ts",
+        "node_modules"
+    ],
+    "watch": [
+        "src"
+    ],
+    "exec": "npm run build && node ./dist/shared/infra/http/server.js",
+    "ext": "ts"
+}

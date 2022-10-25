@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es2022",
+    "sourceMap": true,
+    "module": "commonjs",
+    "rootDir": "./",
+    "baseUrl": "./src",
+    "outDir": "./dist",
+    "paths": {
+      "@modules/*": ["modules/*"],
+      "@shared/*": ["shared/*"],
+      "@utils/*": ["utils/*"],
+      "@documentation/*": ["documentation/*"],
+    },
+    "strictPropertyInitialization": false,
+    "lib": [
+      "esnext"
+    ],
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "noImplicitAny": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+  }
+}

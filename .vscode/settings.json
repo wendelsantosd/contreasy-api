@@ -1,0 +1,12 @@
+{
+  "editor.fontFamily": "Fira Code",
+  "eslint.format.enable": true,
+  "editor.cursorStyle": "block",
+  "editor.renderWhitespace": "boundary",
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  }
+}

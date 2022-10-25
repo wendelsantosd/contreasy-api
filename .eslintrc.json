@@ -1,0 +1,86 @@
+{
+    "env": {
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "import",
+        "eslint-plugin-import",
+        "eslint-plugin-import-helpers"
+    ],
+    "rules": {
+        "@typescript-eslint/no-explicit-any": 0,
+        "@typescript-eslint/no-this-alias": [
+            "error",
+            {
+                "allowDestructuring": true,
+                "allowedNames": [
+                    "schema"
+                ]
+            }
+        ],
+        "import-helpers/order-imports": [
+            "warn",
+            {
+                "newlinesBetween": "always",
+                "groups": [
+                    "module",
+                    "/^@/",
+                    [
+                        "parent",
+                        "sibling",
+                        "index"
+                    ]
+                ],
+                "alphabetize": {
+                    "order": "asc",
+                    "ignoreCase": true
+                }
+            }
+        ],
+        "indent": [
+            "error",
+            2
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "object-curly-spacing": [
+            "error",
+            "always"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ]
+    },
+    "settings": {
+        "import/parses": {
+            "@typescript-eslint/parse": [
+                ".ts"
+            ]
+        },
+        "import/resolver": {
+            "typescript": {
+                "alwaysTryType": true
+            }
+        }
+    }
+}
