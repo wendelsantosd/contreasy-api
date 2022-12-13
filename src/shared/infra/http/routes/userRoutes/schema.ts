@@ -1,15 +1,15 @@
 import Joi from 'joi';
 
 import { AuthenticateUserDto } from '@modules/user/dtos/authenticateUserDto';
-import { CreateOwnerDto } from '@modules/user/dtos/createOwnerDto';
-import { Domain } from '@utils/domain';
+import { CreateUserDto } from '@modules/user/dtos/createUserDto';
+import { Domain } from '@shared/utils/domain';
 
 import { Validator } from '../../middlewares/validator';
 
 export class Schema extends Validator {
   static get create() {
     const schema = {
-      body: Joi.object<CreateOwnerDto>({
+      body: Joi.object<CreateUserDto>({
         name: Joi.string().max(Domain.highDescription).required(),
         username: Joi.string().max(Domain.lowDescription).required(),
         email: Joi.string().max(Domain.lowDescription).required(),
