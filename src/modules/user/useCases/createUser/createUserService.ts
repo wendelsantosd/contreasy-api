@@ -4,6 +4,7 @@ import { hash } from 'bcrypt';
 import { inject, injectable } from 'tsyringe';
 
 import { AppError } from '@shared/errors/appErrors';
+import { IEncryptionProvider } from '@shared/providers/encryption/IEncryption';
 
 import { ICreateUserRepository } from '../../repositories/ICreateUserRepository';
 
@@ -19,7 +20,9 @@ interface IRequest {
 export class CreateUserService {
   constructor(
         @inject('CreateUserRepository')
-        private createUserRepository: ICreateUserRepository
+        private readonly createUserRepository: ICreateUserRepository,
+        @inject('EncryptionProvider')
+        private readonly encryptionProvider: IEncryptionProvider
   ) { }
 
   async execute({ name, username, email, password }: IRequest) {
@@ -31,7 +34,7 @@ export class CreateUserService {
 
     if (usernameExists) throw new AppError('username already exists', 409);
 
-    const hashedPassword = await hash(password, 8);
+    const hashedPassword = await this.encryptionProvider.generateHash(password);
 
     const user = await this.createUserRepository.create({
       name,

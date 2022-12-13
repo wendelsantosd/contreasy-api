@@ -1,13 +1,13 @@
 import { compare, hash } from 'bcrypt';
 
-import { IEncryptionProvider } from './IBcrypt';
+import { IEncryptionProvider } from './IEncryption';
 
-export class BcryptProvider implements IEncryptionProvider {
+export class EncryptionProvider implements IEncryptionProvider {
   public async generateHash(data: string | Buffer): Promise<string> {
     return hash(data, 8);
   }
   
   public async compareHash(data: string | Buffer, hashed: string): Promise<boolean> {
-    return await compare(data, hashed);  
+    return compare(data, hashed);  
   }
 }
