@@ -14,7 +14,6 @@ export class Schema extends Validator {
         username: Joi.string().max(Domain.lowDescription).required(),
         email: Joi.string().max(Domain.lowDescription).required(),
         password: Joi.string().max(Domain.highDescription).required(),
-        phone: Joi.string().max(Domain.lowDescription).optional().allow(null)
       })
     };
 

@@ -3,7 +3,7 @@ version: "3.9"
 services:
   contreasy-db:
     image: postgres
-    container_name: contreasy-db
+    container_name: storizy-db
     ports:
       - 5432:5432
     environment:
