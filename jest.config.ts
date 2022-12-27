@@ -149,9 +149,10 @@ export default {
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   testPathIgnorePatterns: [
-    './src/modules/owner/useCases/createOwner/createOwnerService.spec.ts',
-    './src/modules/owner/useCases/createOwner/createOwnerController.spec.ts',
-    './src/modules/owner/useCases/authenticateOwner/authenticateOwnerService.spec.ts',
+    // './src/modules/user/useCases/createUser/createUserService.spec.ts',
+    './src/modules/user/useCases/createUser/createUserController.spec.ts',
+    './src/modules/user/useCases/authenticateUser/authenticateUserService.spec.ts',
+    './src/modules/user/useCases/authenticateUser/authenticateUserController.spec.ts',
   ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
