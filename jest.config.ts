@@ -149,8 +149,8 @@ export default {
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   testPathIgnorePatterns: [
-    // './src/modules/user/useCases/createUser/createUserService.spec.ts',
-    './src/modules/user/useCases/createUser/createUserController.spec.ts',
+    './src/modules/user/useCases/createUser/createUserService.spec.ts',
+    // './src/modules/user/useCases/createUser/createUserController.spec.ts',
     './src/modules/user/useCases/authenticateUser/authenticateUserService.spec.ts',
     './src/modules/user/useCases/authenticateUser/authenticateUserController.spec.ts',
   ],
