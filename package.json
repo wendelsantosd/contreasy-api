@@ -1,6 +1,6 @@
 {
   "name": "bancaview",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "main": "index.js",
   "author": "Wendel Williams",
   "description": "Bancaview API",
