@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 
 import { User } from '@prisma/client';
-import { TypeUserEnum } from '@utils/enum/TypeUserEnum';
+import { TypeUserEnum } from '@shared/utils/enum/TypeUserEnum';
 
 import { CreateUserDto } from '../../dtos/createUserDto';
 import { ICreateUserRepository } from '../ICreateUserRepository';

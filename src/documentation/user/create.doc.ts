@@ -39,7 +39,23 @@ export const create = {
               schema: {
                 type: 'string',
                 example: {
-                  message:'owner created'
+                  message:'user created'
+                }
+              }
+            }
+          }
+        },
+        '400': {
+          content: {
+            'application/json': {
+              schema: {
+                type: 'string',
+                example: {
+                  message: [
+                    'invalid email format',
+                    'password must be 6 or more characters',
+                    'username must be 2 or more characters'
+                  ]
                 }
               }
             }
@@ -51,7 +67,10 @@ export const create = {
               schema: {
                 type: 'string',
                 example: {
-                  message:'<<value>> already exists'
+                  message:[
+                    'email already exists',
+                    'username already exists',
+                  ]
                 }
               }
             }

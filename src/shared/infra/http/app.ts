@@ -3,7 +3,7 @@ import { config } from 'dotenv';
 import express, { NextFunction, Request, Response } from 'express';
 import 'express-async-errors';
 import morgan from 'morgan';
-import { serve, setup} from 'swagger-ui-express';
+import { serve, setup } from 'swagger-ui-express';
 
 import { swagger } from '@documentation/index';
 
