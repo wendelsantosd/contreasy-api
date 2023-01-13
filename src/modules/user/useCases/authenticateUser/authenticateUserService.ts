@@ -29,10 +29,10 @@ export class AuthenticateUserService {
       user = await this.authenticateUserRepository.findEmail(email);
     } else if (username) {
       user = await this.authenticateUserRepository.findUsername(username);
-    } else {
-      throw new AppError('e-mail or password incorrect', 401);
     }
     
+    if (!user) throw new AppError('e-mail or password incorrect', 401);
+
     const isValid = await this.encryptionProvider.compareHash(password, user.password);
         
     if (!isValid) throw new AppError('e-mail or password incorrect', 401);
