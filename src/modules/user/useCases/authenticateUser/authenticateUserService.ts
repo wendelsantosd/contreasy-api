@@ -1,4 +1,3 @@
-import { compare } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { inject, injectable } from 'tsyringe';
@@ -6,6 +5,7 @@ import { inject, injectable } from 'tsyringe';
 import { IAuthenticateUserRepository } from '@modules/user/repositories/IAuthenticateUserRepository';
 import { User } from '@prisma/client';
 import { AppError } from '@shared/errors/appErrors';
+import { IEncryptionProvider } from '@shared/providers/encryption/IEncryption';
 
 interface IRequest {
     username?: string;
@@ -17,7 +17,9 @@ interface IRequest {
 export class AuthenticateUserService {
   constructor(
         @inject('AuthenticateUserRepository')
-        private authenticateUserRepository: IAuthenticateUserRepository
+        private readonly authenticateUserRepository: IAuthenticateUserRepository,
+        @inject('EncryptionProvider')
+        private readonly encryptionProvider: IEncryptionProvider
   ) {}
 
   async execute({ email, username, password }: IRequest) {
@@ -30,10 +32,8 @@ export class AuthenticateUserService {
     } else {
       throw new AppError('e-mail or password incorrect', 401);
     }
-
-    if (!user) throw new AppError('e-mail or password incorrect', 401);
-
-    const isValid = await compare(password, user.password);
+    
+    const isValid = await this.encryptionProvider.compareHash(password, user.password);
         
     if (!isValid) throw new AppError('e-mail or password incorrect', 401);
 
